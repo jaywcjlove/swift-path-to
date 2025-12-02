@@ -76,10 +76,7 @@ Parameters match arbitrary strings in a path by matching up to the end of a segm
 let fn = PathTo.match("/:foo/:bar")
 
 if let r = fn("/test/route") {
-    // r -> 
-    // PathTo.MatchResult(
-    //      path: "/test/route", params: ["foo": "test", "bar": "route"]
-    // )
+    // r -> params: ["foo": "test", "bar": "route"]
     print(r.path) // "/test/route"
     print(r.params["foo"] as? String) // "test"
     print(r.params["bar"] as? String) // "route"
@@ -93,6 +90,7 @@ Wildcard parameters match one or more characters across multiple segments. They 
 ```swift
 let fn = PathTo.match("/*splat")
 if let r2 = fn("/bar/baz") {
+    // r -> params: ["splat": ["bar", "baz"]]
     print(r2.params["splat"] as? [String]) // ["bar", "baz"]
 }
 ```
