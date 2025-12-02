@@ -88,8 +88,8 @@ if let r = fn("/test/route") {
 Wildcard parameters match one or more characters across multiple segments. They are defined the same way as regular parameters, but are prefixed with an asterisk (`*foo`).
 
 ```swift
-let fn2 = PathTo.match("/*splat")
-if let r2 = fn2("/bar/baz") {
+let fn = PathTo.match("/*splat")
+if let r2 = fn("/bar/baz") {
     print(r2.params["splat"] as? [String]) // ["bar", "baz"]
 }
 ```
@@ -99,9 +99,9 @@ if let r2 = fn2("/bar/baz") {
 Braces can be used to define parts of the path that are optional.
 
 ```swift
-let fn3 = PathTo.match("/users{/:id}/delete")
-print(fn3("/users/delete")?.params) // [:]
-print(fn3("/users/123/delete")?.params) // ["id": "123"]
+let fn = PathTo.match("/users{/:id}/delete")
+print(fn("/users/delete")?.params) // [:]
+print(fn("/users/123/delete")?.params) // ["id": "123"]
 ```
 
 ## License
