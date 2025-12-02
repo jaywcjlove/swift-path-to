@@ -73,10 +73,13 @@ import PathTo
 Parameters match arbitrary strings in a path by matching up to the end of a segment or up to any subsequent tokens. They are defined by prefixing the parameter name with a colon (`:foo`).
 
 ```swift
-import PathTo
-
 let fn = PathTo.match("/:foo/:bar")
+
 if let r = fn("/test/route") {
+    // r -> 
+    // PathTo.MatchResult(
+    //      path: "/test/route", params: ["foo": "test", "bar": "route"]
+    // )
     print(r.path) // "/test/route"
     print(r.params["foo"] as? String) // "test"
     print(r.params["bar"] as? String) // "route"
