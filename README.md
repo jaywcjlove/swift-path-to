@@ -36,7 +36,7 @@
 PathTo
 ===
 
-A lightweight Swift path pattern matcher.
+A lightweight Swift path pattern matcher for URL-style routing — supports named parameters, optional segments, and splat wildcards.
 
 ## Installation
 
